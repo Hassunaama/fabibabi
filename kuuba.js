@@ -104,7 +104,7 @@ function loadTexture(gl, url) {
    return (value & (value - 1)) === 0;
  }
 
-const currentImage = "/fabibabi.png";
+const currentImage = "fabibabi.png";
 
 const tex = loadTexture(gl, currentImage);
 
