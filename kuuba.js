@@ -104,7 +104,7 @@ function loadTexture(gl, url) {
    return (value & (value - 1)) === 0;
  }
 
-const currentImage = "https://cdn.discordapp.com/emojis/809899586306703380.webp?quality=lossless";
+const currentImage = "/fabibabi.png?quality=lossless";
 
 const tex = loadTexture(gl, currentImage);
 
