@@ -1,5 +1,5 @@
 function playFunky() {
-    let audio = new Audio('funkytown.ogg');
+    let audio = new Audio('funkyfabi.wav');
     audio.addEventListener("loadeddata", () => {
       audio.play()
       audio.loop = true;
