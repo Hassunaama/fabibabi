@@ -3,7 +3,7 @@ function playFunky() {
     audio.addEventListener("loadeddata", () => {
       audio.play()
       audio.loop = true;
-      audio.speed = 100;
+      audioplaybackRate = 100;
       // The duration variable now holds the duration (in seconds) of the audio clip
     });
   }
