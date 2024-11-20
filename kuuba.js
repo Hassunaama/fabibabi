@@ -63,6 +63,8 @@ function render(time) {
       twgl.setUniforms(programInfo, uniforms);
       gl.drawElements(gl.TRIANGLES, bufferInfo.numElements, gl.UNSIGNED_SHORT, 0);
 
+      console.log("test");
+  
       requestAnimationFrame(render);
     }
 requestAnimationFrame(render);
