@@ -1,4 +1,4 @@
-import * as twgl from 'https://twgljs.org/dist/5.x/twgl-full.module.js';
+import * as twgl from 'https://twgljs.org/dist/6.x/twgl-full.module.js';
 const m4 = twgl.m4;
 const gl = document.querySelector("#cube").getContext("webgl");
 
