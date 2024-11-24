@@ -1,6 +1,8 @@
 import * as twgl from 'https://twgljs.org/dist/6.x/twgl-full.module.js';
+twgl.setDefaults({attribPrefix: "a_"});
 const m4 = twgl.m4;
-const gl = document.querySelector("#cube").getContext("webgl");
+const cube = document.querySelector("#cube");
+const gl = cube.getContext("webgl");
 
 const programInfo = twgl.createProgramInfo(gl, ["vs", "fs"]);
 
@@ -62,9 +64,12 @@ function render(time) {
       twgl.setBuffersAndAttributes(gl, programInfo, bufferInfo);
       twgl.setUniforms(programInfo, uniforms);
       gl.drawElements(gl.TRIANGLES, bufferInfo.numElements, gl.UNSIGNED_SHORT, 0);
-
-      console.log("test");
   
       requestAnimationFrame(render);
-    }
-requestAnimationFrame(render);
+}
+
+document.querySelector("#funky").addEventListener("click", (e) => {
+  e.target.innerHTML = "Play (more) audio"
+  cube.style.display = "block";
+  requestAnimationFrame(render)
+});
