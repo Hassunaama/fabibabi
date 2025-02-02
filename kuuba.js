@@ -6,7 +6,7 @@ const gl = cube.getContext("webgl");
 
 const programInfo = twgl.createProgramInfo(gl, ["vs", "fs"]);
 
-const bufferInfo = twgl.primitives.createTorusBufferInfo(gl, 1, 0.4, 24, 12);
+const bufferInfo = twgl.primitives.createDiscBufferInfo(gl, 1, 24);
 
 const currentImage = "fabibabi.png";
 
