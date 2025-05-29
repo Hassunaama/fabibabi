@@ -58,12 +58,28 @@ function render(time) {
       twgl.setBuffersAndAttributes(gl, programInfo, bufferInfo);
       twgl.setUniforms(programInfo, uniforms);
       gl.drawElements(gl.TRIANGLES, bufferInfo.numElements, gl.UNSIGNED_SHORT, 0);
-  
+
+      //console.log(audio);
       requestAnimationFrame(render);
 }
+const audio = document.getElementById("fuckjs")
+let isStarted = false;
 
 document.querySelector("#funky").addEventListener("click", (e) => {
-  e.target.innerHTML = "Play (more) audio"
-  cube.style.display = "block";
-  requestAnimationFrame(render)
+  if (!isStarted) {
+    audio.addEventListener("loadeddata", () => {
+      audio.loop = true;
+      audio.playbackRate = 1;
+      audio.play()
+    });
+    cube.style.display = "block";
+    e.currentTarget.style.display = "none";
+    document.getElementById("hide").style.display = "block"
+    requestAnimationFrame(render)
+  }
+  isStarted = true;
 });
+
+document.getElementById("hide").addEventListener("click", (e) => {
+  document.getElementById("tohide").style.display = "none"
+})
