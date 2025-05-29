@@ -62,16 +62,11 @@ function render(time) {
       //console.log(audio);
       requestAnimationFrame(render);
 }
-const audio = document.getElementById("fuckjs")
-let isStarted = false;
+
+window.isStarted = false;
 
 document.querySelector("#funky").addEventListener("click", (e) => {
   if (!isStarted) {
-    audio.addEventListener("loadeddata", () => {
-      audio.loop = true;
-      audio.playbackRate = 1;
-      audio.play()
-    });
     cube.style.display = "block";
     e.currentTarget.style.display = "none";
     document.getElementById("hide").style.display = "block"
