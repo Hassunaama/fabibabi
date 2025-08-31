@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -16,9 +17,21 @@
     
     <br>
     <div id="tohide">
-      <button id="funky" onclick="playFunky()" style="font-size: x-large; padding-left: 16px; padding-right: 16px;">Play</button><br>
-      <button id="hide" style="display: none; font-size: x-large; padding-left: 16px; padding-right: 16px;">Hide</button>
+      <button id="funky" style="font-size: x-large; padding-left: 16px; padding-right: 16px;">Play</button><br>
+
+      <div id="toshow" style="display: none;">
+        <button id="hide" style="font-size: x-large; padding-left: 16px; padding-right: 16px;">Hide</button><br>
+
+        <input type="checkbox" name="realtime" id="relatime" style="margin-top: 16px;">
+        <label for="realtime" style="color: white;">use real time (no music sync. smoother)</label>
+
+        <div style="margin-top: 16px; display: flex; margin-left: auto; margin-right: auto; width: min-content; gap: 16px;">
+          <audio id="audiio" src="funkyfabi.wav" controls preload></audio>
+          <input id="ratelimiteeri" type="number" style="font-size: x-large; padding-left: 16px; padding-right: 16px; width: 32px; margin: 0;">
+        </div>
+      </div>
     </div>
+    
     
 
     <!-- twgl cube data -->

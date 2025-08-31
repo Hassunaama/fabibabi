@@ -26,8 +26,13 @@ const uniforms = {
   u_diffuse: tex,
 };
 
+window.relatime = false;
+
 function render(time) {
-      time *= 0.001;
+      //time *= 1000
+      if (window.relatime === true) {
+        time *= 0.001;
+      }
       twgl.resizeCanvasToDisplaySize(gl.canvas);
       gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
 
@@ -60,28 +65,55 @@ function render(time) {
       gl.drawElements(gl.TRIANGLES, bufferInfo.numElements, gl.UNSIGNED_SHORT, 0);
 
       //console.log(audio);
-      requestAnimationFrame(render);
+      if (window.relatime === true) {
+        requestAnimationFrame(render);
+      } else {
+        const audio = document.getElementById("audiio");
+        requestAnimationFrame(() => render(audio.currentTime));
+      }
 }
 
 window.isStarted = false;
 
 document.querySelector("#funky").addEventListener("click", (e) => {
   if (!isStarted) {
-    let audio = new Audio('funkyfabi.wav');
-    audio.addEventListener("loadeddata", () => {
+    const audio = document.getElementById("audiio");
+    console.log(audio)
+    //audio.addEventListener("loadeddata", () => {
       audio.play()
       audio.loop = true;
       audio.playbackRate = 1;
+      document.getElementById("ratelimiteeri").value = audio.playbackRate;
+      document.getElementById("relatime").checked = false;
       // The duration variable now holds the duration (in seconds) of the audio clip
-    });
+    //});
     cube.style.display = "block";
     e.currentTarget.style.display = "none";
-    document.getElementById("hide").style.display = "block"
-    requestAnimationFrame(render)
+    document.getElementById("toshow").style.display = "block"
+    requestAnimationFrame(() => render(audio.currentTime));
   }
   isStarted = true;
 });
 
-document.getElementById("hide").addEventListener("click", (e) => {
+document.getElementById("ratelimiteeri").addEventListener("change", (e) => {
+  console.log(e.currentTarget.value);
+
+  document.getElementById("audiio").playbackRate = e.currentTarget.value;
+})
+
+document.getElementById("relatime").addEventListener("change", (e) => {
+  console.log(e.currentTarget.checked);
+
+  window.relatime = e.currentTarget.checked;
+})
+
+
+document.getElementById("audiio").addEventListener("ratechange", (e) => {
+  console.log(e.currentTarget.playbackRate);
+  
+  document.getElementById("ratelimiteeri").value = e.currentTarget.playbackRate
+})
+
+document.getElementById("hide").addEventListener("click", () => {
   document.getElementById("tohide").style.display = "none"
 })
