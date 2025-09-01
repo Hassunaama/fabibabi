@@ -107,6 +107,11 @@ document.getElementById("relatime").addEventListener("change", (e) => {
   window.relatime = e.currentTarget.checked;
 })
 
+window.addEventListener("resize", () => {
+  const cube = document.querySelector("#cube");
+  cube.width = 1280;
+  cube.height = 720;
+})
 
 document.getElementById("audiio").addEventListener("ratechange", (e) => {
   console.log(e.currentTarget.playbackRate);
