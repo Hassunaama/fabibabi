@@ -95,6 +95,7 @@ document.querySelector("#funky").addEventListener("click", (e) => {
     var stream = cube.captureStream(60);
     // Set the source of the <video> element to be the stream from the <canvas>.
     video.srcObject = stream;
+    video.play();
   }
   isStarted = true;
 });
