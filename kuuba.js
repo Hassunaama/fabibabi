@@ -88,7 +88,7 @@ document.querySelector("#funky").addEventListener("click", (e) => {
       document.getElementById("relatime").checked = false;
       // The duration variable now holds the duration (in seconds) of the audio clip
     //});
-    cube.style.display = "block";
+    video.style.display = "block";
     e.currentTarget.style.display = "none";
     document.getElementById("toshow").style.display = "block"
     requestAnimationFrame(() => render(audio.currentTime));
