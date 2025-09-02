@@ -2,6 +2,7 @@ import * as twgl from 'https://twgljs.org/dist/6.x/twgl-full.module.js';
 twgl.setDefaults({attribPrefix: "a_"});
 const m4 = twgl.m4;
 const cube = document.querySelector("#cube");
+const video = document.querySelector("#realcube");
 const gl = cube.getContext("webgl");
 
 const programInfo = twgl.createProgramInfo(gl, ["vs", "fs"]);
@@ -91,6 +92,9 @@ document.querySelector("#funky").addEventListener("click", (e) => {
     e.currentTarget.style.display = "none";
     document.getElementById("toshow").style.display = "block"
     requestAnimationFrame(() => render(audio.currentTime));
+    var stream = cube.captureStream(60);
+    // Set the source of the <video> element to be the stream from the <canvas>.
+    video.srcObject = stream;
   }
   isStarted = true;
 });
@@ -108,9 +112,11 @@ document.getElementById("relatime").addEventListener("change", (e) => {
 })
 
 window.addEventListener("resize", () => {
-  const cube = document.querySelector("#cube");
   cube.width = 1280;
   cube.height = 720;
+  
+  video.width = 1280;
+  video.height = 720;
 })
 
 document.getElementById("audiio").addEventListener("ratechange", (e) => {
