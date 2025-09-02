@@ -92,7 +92,7 @@ document.querySelector("#funky").addEventListener("click", (e) => {
     e.currentTarget.style.display = "none";
     document.getElementById("toshow").style.display = "block"
     requestAnimationFrame(() => render(audio.currentTime));
-    var stream = cube.captureStream(60);
+    var stream = cube.captureStream();
     // Set the source of the <video> element to be the stream from the <canvas>.
     video.srcObject = stream;
     video.play();
