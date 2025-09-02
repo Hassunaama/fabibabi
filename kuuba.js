@@ -53,7 +53,7 @@ function render(time) {
       const camera = m4.lookAt(eye, target, up);
       const view = m4.inverse(camera);
       const viewProjection = m4.multiply(projection, view);
-      const world = m4.rotationY(time * 2);
+      const world = m4.rotationY(time * 2 * (window.relatime ? document.getElementById("ratelimiteeri").value : 1));
 
       uniforms.u_viewInverse = camera;
       uniforms.u_world = world;
