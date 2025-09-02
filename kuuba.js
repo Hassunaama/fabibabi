@@ -66,6 +66,10 @@ function render(time) {
       gl.drawElements(gl.TRIANGLES, bufferInfo.numElements, gl.UNSIGNED_SHORT, 0);
 
       //console.log(audio);
+
+      video.width = cube.width;
+      video.height = cube.height;
+  
       if (window.relatime === true) {
         requestAnimationFrame(render);
       } else {
@@ -89,6 +93,7 @@ document.querySelector("#funky").addEventListener("click", (e) => {
       // The duration variable now holds the duration (in seconds) of the audio clip
     //});
     cube.style.display = "block";
+    video.style.display = "block";
     var stream = cube.captureStream();
     // Set the source of the <video> element to be the stream from the <canvas>.
     video.srcObject = stream;
