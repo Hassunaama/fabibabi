@@ -89,13 +89,13 @@ document.querySelector("#funky").addEventListener("click", (e) => {
       // The duration variable now holds the duration (in seconds) of the audio clip
     //});
     video.style.display = "block";
-    e.currentTarget.style.display = "none";
-    document.getElementById("toshow").style.display = "block"
-    requestAnimationFrame(() => render(audio.currentTime));
     var stream = cube.captureStream();
     // Set the source of the <video> element to be the stream from the <canvas>.
     video.srcObject = stream;
     video.play();
+    e.currentTarget.style.display = "none";
+    document.getElementById("toshow").style.display = "block"
+    requestAnimationFrame(() => render(audio.currentTime));
   }
   isStarted = true;
 });
