@@ -11,6 +11,8 @@ const bufferInfo = twgl.primitives.createCubeBufferInfo(gl, 2);
 
 const currentImage = "fabibabi.png";
 
+var stream;
+
 const tex = twgl.createTexture(gl, {
   min: gl.NEAREST,
   mag: gl.NEAREST,
@@ -69,6 +71,7 @@ function render(time) {
 
       video.width = cube.width;
       video.height = cube.height;
+      video.play();
   
       if (window.relatime === true) {
         requestAnimationFrame(render);
@@ -94,7 +97,7 @@ document.querySelector("#funky").addEventListener("click", (e) => {
     //});
     cube.style.display = "block";
     video.style.display = "block";
-    var stream = cube.captureStream();
+    stream = cube.captureStream();
     // Set the source of the <video> element to be the stream from the <canvas>.
     video.srcObject = stream;
     video.play();
