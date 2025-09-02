@@ -88,7 +88,7 @@ document.querySelector("#funky").addEventListener("click", (e) => {
       document.getElementById("relatime").checked = false;
       // The duration variable now holds the duration (in seconds) of the audio clip
     //});
-    video.style.display = "block";
+    cube.style.display = "block";
     var stream = cube.captureStream();
     // Set the source of the <video> element to be the stream from the <canvas>.
     video.srcObject = stream;
